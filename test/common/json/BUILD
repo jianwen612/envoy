@@ -14,6 +14,7 @@ envoy_cc_fuzz_test(
     srcs = ["json_fuzz_test.cc"],
     corpus = "json_corpus",
     deps = [
+         "//source/common/json:json_loader_lib",
         "//source/common/protobuf",
         "//source/common/protobuf:utility_lib",
         "//test/fuzz:utility_lib",
