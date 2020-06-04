@@ -1,7 +1,6 @@
+#include "common/json/json_loader.h"
 #include "common/protobuf/protobuf.h"
 #include "common/protobuf/utility.h"
-
-#include "common/json/json_loader.h"
 
 #include "test/fuzz/fuzz_runner.h"
 #include "test/fuzz/utility.h"
@@ -41,12 +40,12 @@ DEFINE_FUZZER(const uint8_t* buf, size_t len) {
     }
   }
   {
-    //Load via json_loader
-    try{
+    // Load via json_loader
+    try {
       Json::ObjectSharedPtr json = Json::Factory::loadFromString(json_string);
-    } catch (const Envoy::Json::Exception& e){
+    } catch (const Envoy::Json::Exception& e) {
       ENVOY_LOG_MISC(debug, "Failed in json_loader parsing due to {}", e.what());
-    } 
+    }
   }
 }
 
